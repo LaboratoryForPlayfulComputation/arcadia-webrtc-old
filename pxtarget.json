@@ -30,10 +30,10 @@
         "aspectRatio": 1.0
     },     
     "appTheme": {
-        "logoUrl": "https://laboratoryforplayfulcomputation.github.io/arcadia/",
-        "homeUrl": "https://laboratoryforplayfulcomputation.github.io/arcadia/",
-        "betaUrl": "https://laboratoryforplayfulcomputation.github.io/arcadia/",
-        "githubUrl": "https://github.com/LaboratoryForPlayfulComputation/arcadia",
+        "logoUrl": "https://laboratoryforplayfulcomputation.github.io/arcadia-webrtc/",
+        "homeUrl": "https://laboratoryforplayfulcomputation.github.io/arcadia-webrtc/",
+        "betaUrl": "https://laboratoryforplayfulcomputation.github.io/arcadia-webrtc/",
+        "githubUrl": "https://github.com/LaboratoryForPlayfulComputation/arcadia-webrtc",
         "logo": "./static/logo.svg",
         "docsLogo": "./static/logo.svg",
         "portraitLogo": "./static/logo.svg",

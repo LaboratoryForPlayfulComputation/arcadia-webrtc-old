@@ -1,0 +1,28 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <variables>
+    <variable type="" id="NLNJ$]8`,Z~_^Y?6DW_b">ip</variable>
+    <variable type="" id="2Y8UKQ4g%!XVq{QZ)z;8">item</variable>
+    <variable type="" id="Ua?O,6my{H3I^q$ncHNW">port</variable>
+  </variables>
+  <block type="pxt-on-start" id="~u+mex?q1l13@*CHH5eZ" x="52" y="177">
+    <statement name="HANDLER">
+      <block type="peer_block" id="EKto20,lbT*kKeSHbhR{">
+        <value name="key">
+          <shadow type="text" id="8wP.j=%*K;i*6wp]F_Tr">
+            <field name="TEXT">play</field>
+          </shadow>
+        </value>
+        <value name="value">
+          <shadow type="math_number" id="z7Z]a,p7v7.QpB[mkS^g">
+            <field name="NUM">0</field>
+          </shadow>
+        </value>
+        <value name="id">
+          <shadow type="text" id="LfG4;uWKbsjCEw}ZY-Nn">
+            <field name="TEXT">qwfq4e4w3b000000</field>
+          </shadow>
+        </value>
+      </block>
+    </statement>
+  </block>
+</xml>

@@ -1,0 +1,87 @@
+{
+    "id": "arcadia",
+    "name": "Arcadia",
+    "title": "Marker-based Augmented Reality Code Editor",
+    "corepkg": "core",
+    "cloud": {
+        "workspace": false,
+        "packages": false,
+        "sharing": false,
+        "publishing": true,
+        "importing": false,
+        "preferredPackages": [],
+        "githubPackages": false
+    },
+    "bundleddirs": [
+        "libs/core"
+    ],
+    "runtime": {
+        "mathBlocks": true,
+        "loopsBlocks": true,
+        "logicBlocks": true,
+        "variablesBlocks": true,
+        "textBlocks": true,
+        "listsBlocks": true,
+        "functionBlocks": true,
+        "musicBlocks": true
+    },
+    "simulator": {
+        "autoRun": true,
+        "aspectRatio": 1.0
+    },     
+    "appTheme": {
+        "logoUrl": "https://laboratoryforplayfulcomputation.github.io/arcadia/",
+        "homeUrl": "https://laboratoryforplayfulcomputation.github.io/arcadia/",
+        "betaUrl": "https://laboratoryforplayfulcomputation.github.io/arcadia/",
+        "githubUrl": "https://github.com/LaboratoryForPlayfulComputation/arcadia",
+        "logo": "./static/logo.svg",
+        "docsLogo": "./static/logo.svg",
+        "portraitLogo": "./static/logo.svg",
+        "footerLogo": "./static/logo.svg",    
+        "organization": "CU Boulder ATLAS",
+        "organizationUrl": "http://www.colorado.edu/atlas/",
+        "organizationLogo": "./static/cuicon.png",
+        "organizationWideLogo": "./static/cuwide.png",        
+        "hideCookieNotice": true,    
+        "docMenu": [
+            {
+                "name": "About",
+                "path": "/about"
+            },
+            {
+                "name": "Preparing markers",
+                "path": "/markers"
+            },
+            {
+                "name": "Getting started",
+                "path": "/program"
+            },
+            {
+                "name": "Examples",
+                "path": "/examples"
+            }                                     
+        ],
+        "coloredToolbox": false,
+        "monacoToolbox": true,
+        "invertedToolbox": true,
+        "invertedMonaco": true,
+        "invertedMenu": true,
+        "simAnimationEnter": "scale in",
+        "simAnimationExit": "scale out",
+        "extendEditor": true,
+        "disableBlockIcons": true,
+        "blockColors": {
+            "loops": "#2dc660",
+            "logic": "#30cbd1",
+            "math": "#d933ff",
+            "variables": "#ff356e",
+            "text": "#ffd018",
+            "advanced": "#111111",
+            "functions": "#3399ff",
+            "arrays": "#b62fd1"
+        },
+        "galleries": {
+            "Examples": "examples"
+        }
+    }
+}

@@ -1,0 +1,60 @@
+CACHE MANIFEST
+
+CACHE:
+/arcadia-webrtc/semantic.js
+/arcadia-webrtc/main.js
+/arcadia-webrtc/typescript.js
+/arcadia-webrtc/marked/marked.min.js
+/arcadia-webrtc/highlight.js/highlight.pack.js
+/arcadia-webrtc/lzma/lzma_worker-min.js
+/arcadia-webrtc/fuse.min.js
+/arcadia-webrtc/jquery.js
+/arcadia-webrtc/pxtlib.js
+/arcadia-webrtc/pxtcompiler.js
+/arcadia-webrtc/pxtblocks.js
+/arcadia-webrtc/pxtwinrt.js
+/arcadia-webrtc/pxteditor.js
+/arcadia-webrtc/pxtsim.js
+/arcadia-webrtc/semantic.css
+/arcadia-webrtc/rtlsemantic.css
+/arcadia-webrtc/custom.css
+/arcadia-webrtc/icons.css
+
+
+
+
+# blockly
+/arcadia-webrtc/blockly/blockly_compressed.js
+/arcadia-webrtc/blockly/blocks_compressed.js
+/arcadia-webrtc/blockly/msg/js/en.js
+/arcadia-webrtc/blockly/media/sprites.png
+/arcadia-webrtc/blockly/media/click.mp3
+/arcadia-webrtc/blockly/media/disconnect.wav
+/arcadia-webrtc/blockly/media/delete.mp3
+
+# monaco; keep in sync with webapp/public/index.html
+/arcadia-webrtc/vs/loader.js
+/arcadia-webrtc/vs/base/worker/workerMain.js
+/arcadia-webrtc/vs/basic-languages/src/bat.js
+/arcadia-webrtc/vs/basic-languages/src/cpp.js
+/arcadia-webrtc/vs/editor/editor.main.css
+/arcadia-webrtc/vs/editor/editor.main.js
+/arcadia-webrtc/vs/editor/editor.main.nls.js
+/arcadia-webrtc/vs/language/json/jsonMode.js
+/arcadia-webrtc/vs/language/json/jsonWorker.js
+/arcadia-webrtc/vs/language/typescript/lib/typescriptServices.js
+/arcadia-webrtc/vs/language/typescript/src/mode.js
+/arcadia-webrtc/vs/language/typescript/src/worker.js
+
+# ai
+https://az416426.vo.msecnd.net/scripts/a/ai.0.js
+
+/arcadia-webrtc/worker.js
+/arcadia-webrtc/monacoworker.js
+
+# ver Sun Dec 17 2017 23:05:39 GMT-0700 (MST)
+
+/arcadia-webrtc/target.js
+  
+NETWORK:
+*

@@ -2,6 +2,8 @@
 ###  A programming editor to enable construction of real-time, interactive tangible interfaces + the ability to send and receive data via WebRTC.
 Try it out here: https://laboratoryforplayfulcomputation.github.io/arcadia-webrtc/
 
+If you would like to have multiple editors open in Chrome without having "inactive" tabs discarded from memory, go to chrome://flags/#automatic-tab-discarding and set it to disabled.
+
 ### Setup
 
 ARcadia is a target for Microsoft Makecode and the following commands are a 1-time setup after synching the repo on your machine.

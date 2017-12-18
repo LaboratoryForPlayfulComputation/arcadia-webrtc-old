@@ -1,4 +1,4 @@
-# ARcadia
+# ARcadia + WebRTC
 ###  A programming editor to enable construction of real-time, interactive tangible interfaces + the ability to send and receive data via WebRTC.
 Try it out here: https://laboratoryforplayfulcomputation.github.io/arcadia-webrtc/
 

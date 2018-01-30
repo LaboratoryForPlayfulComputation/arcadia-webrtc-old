@@ -61,7 +61,8 @@ namespace pxsim.messaging {
                 if(!conn || !conn.open){
                     conn = peer.connect(id);
                     conn.on('open', function(){
-                        initDataConnectionCallbacks(conn);                        
+                        initDataConnectionCallbacks(conn);      
+                        conn.send({"key": key, "value": value});
                     });                    
                 }
                 conn.send({"key": key, "value": value});

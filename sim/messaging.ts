@@ -34,11 +34,19 @@ namespace pxsim.messaging {
                 debug: 3});
 
             /* Received user ID from server */
-            if (peer) peer.on('open', function(id : string) { updateUserId(id); });
+            if (peer) peer.on('open', function(id : string) { 
+                if (id)
+                    updateUserId(id); 
+                else if (peer.id)
+                    updateUserId(peer.id); 
+            });
             else initializePeer();
             if (peer) peer.on('close', function() { });
             else initializePeer();
-            if (peer) peer.on('disconnected', function() { });
+            if (peer) peer.on('disconnected', function() { 
+                console.log("peer disconnecteeeeeed from server");
+                peer.reconnect();
+            });
             else initializePeer();
             if (peer) peer.on('error', function(err: any) { });
             else initializePeer();

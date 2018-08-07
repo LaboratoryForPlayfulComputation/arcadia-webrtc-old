@@ -1,5 +1,5 @@
 {
-  "name": "arcadia",
+  "name": "arcadia-webrtc",
   "version": "0.0.132",
   "description": "Marker based Augmented Reality Code Editor",
   "keywords": [
@@ -37,6 +37,7 @@
     "@types/three": "^0.84.26",
     "@types/webaudioapi": "0.0.27",
     "@types/webrtc": "0.0.22",
+    "bluebird": "^3.5.1",
     "pxt-core": "2.1.5"
   },
   "scripts": {

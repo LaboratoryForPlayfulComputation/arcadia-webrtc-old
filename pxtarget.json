@@ -1,6 +1,6 @@
 {
-    "id": "arcadia",
-    "name": "Arcadia",
+    "id": "arcadia-webrtc",
+    "name": "Arcadia webrtc",
     "title": "Marker-based Augmented Reality Code Editor",
     "corepkg": "core",
     "cloud": {

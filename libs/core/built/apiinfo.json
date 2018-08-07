@@ -34,7 +34,7 @@
     "blockBuiltin": "true",
     "blockNamespace": "arrays",
     "paramHelp": {},
-    "jsDoc": "Gets or sets the length of the array. This is a number one higher than the highest element defined in an array.",
+    "jsDoc": "Get or set the length of an array. This number is one more than the index of the last element the array.",
     "_name": "length"
    },
    "pkg": null,
@@ -59,7 +59,7 @@
     "paramHelp": {
      "items": "New elements of the Array."
     },
-    "jsDoc": "Appends new elements to an array.",
+    "jsDoc": "Append a new element to an array.",
     "_name": "push"
    },
    "pkg": null,
@@ -91,7 +91,7 @@
     "block": "get and remove last value from %list",
     "blockNamespace": "arrays",
     "paramHelp": {},
-    "jsDoc": "Removes the last element from an array and returns it.",
+    "jsDoc": "Remove the last element from an array and return it.",
     "_name": "pop"
    },
    "pkg": null,
@@ -111,12 +111,11 @@
     "help": "arrays/reverse",
     "helper": "arrayReverse",
     "weight": 10,
-    "advanced": true,
     "blockId": "array_reverse",
     "block": "reverse %list",
     "blockNamespace": "arrays",
     "paramHelp": {},
-    "jsDoc": "Reverses the elements in an Array. The first array element becomes the last, and the last array element becomes the first.",
+    "jsDoc": "Reverse the elements in an array. The first array element becomes the last, and the last array element becomes the first.",
     "_name": "reverse"
    },
    "pkg": null,
@@ -136,12 +135,11 @@
     "help": "arrays/shift",
     "helper": "arrayShift",
     "weight": 70,
-    "advanced": true,
     "blockId": "array_shift",
     "block": "get and remove first value from %list",
     "blockNamespace": "arrays",
     "paramHelp": {},
-    "jsDoc": "Removes the first element from an array and returns that element. This method changes the length of the array.",
+    "jsDoc": "Remove the first element from an array and return it. This method changes the length of the array.",
     "_name": "shift"
    },
    "pkg": null,
@@ -161,14 +159,13 @@
     "help": "arrays/unshift",
     "helper": "arrayUnshift",
     "weight": 69,
-    "advanced": true,
     "blockId": "array_unshift",
     "block": "%list| insert %value| at beginning",
     "blockNamespace": "arrays",
     "paramHelp": {
      "element": "to insert at the start of the Array."
     },
-    "jsDoc": "Adds one element to the beginning of an array and returns the new length of the array.",
+    "jsDoc": "Add one element to the beginning of an array and return the new length of the array.",
     "_name": "unshift"
    },
    "pkg": null,
@@ -199,13 +196,12 @@
     "help": "arrays/slice",
     "helper": "arraySlice",
     "weight": 41,
-    "advanced": true,
     "blockNamespace": "arrays",
     "paramHelp": {
      "start": "The beginning of the specified portion of the array. eg: 0",
      "end": "The end of the specified portion of the array. eg: 0"
     },
-    "jsDoc": "Returns a section of an array.",
+    "jsDoc": "Return a section of an array.",
     "_name": "slice"
    },
    "pkg": null,
@@ -250,7 +246,7 @@
      "start": "The zero-based location in the array from which to start removing elements. eg: 0",
      "deleteCount": "The number of elements to remove. eg: 0"
     },
-    "jsDoc": "Removes elements from an array.",
+    "jsDoc": "Remove elements from an array.",
     "_name": "splice"
    },
    "pkg": null,
@@ -291,7 +287,7 @@
     "paramHelp": {
      "specifies": "a function that defines the sort order. If omitted, the array is sorted according to the prmitive type"
     },
-    "jsDoc": "Sorts the elements of an array in place and returns the array. The sort is not necessarily stable.",
+    "jsDoc": "Sort the elements of an array in place and returns the array. The sort is not necessarily stable.",
     "_name": "sort"
    },
    "pkg": null,
@@ -301,6 +297,16 @@
      "name": "callbackfn",
      "description": "",
      "type": "(value1: T, value2: T) => number",
+     "handlerParameters": [
+      {
+       "name": "value1",
+       "type": "T"
+      },
+      {
+       "name": "value2",
+       "type": "T"
+      }
+     ],
      "options": {},
      "isEnum": false
     }
@@ -321,7 +327,7 @@
     "paramHelp": {
      "callbackfn": "A function that accepts up to two arguments. The map method calls the callbackfn function one time for each element in the array."
     },
-    "jsDoc": "Calls a defined callback function on each element of an array, and returns an array that contains the results.",
+    "jsDoc": "Call a defined callback function on each element of an array, and return an array containing the results.",
     "_name": "map"
    },
    "pkg": null,
@@ -331,6 +337,16 @@
      "name": "callbackfn",
      "description": "A function that accepts up to two arguments. The map method calls the callbackfn function one time for each element in the array.",
      "type": "(value: T, index: number) => U",
+     "handlerParameters": [
+      {
+       "name": "value",
+       "type": "T"
+      },
+      {
+       "name": "index",
+       "type": "number"
+      }
+     ],
      "options": {},
      "isEnum": false
     }
@@ -351,7 +367,7 @@
     "paramHelp": {
      "callbackfn": "A function that accepts up to two arguments. The filter method calls the callbackfn function one time for each element in the array."
     },
-    "jsDoc": "Returns the elements of an array that meet the condition specified in a callback function.",
+    "jsDoc": "Return the elements of an array that meet the condition specified in a callback function.",
     "_name": "filter"
    },
    "pkg": null,
@@ -361,6 +377,16 @@
      "name": "callbackfn",
      "description": "A function that accepts up to two arguments. The filter method calls the callbackfn function one time for each element in the array.",
      "type": "(value: T, index: number) => boolean",
+     "handlerParameters": [
+      {
+       "name": "value",
+       "type": "T"
+      },
+      {
+       "name": "index",
+       "type": "number"
+      }
+     ],
      "options": {},
      "isEnum": false
     }
@@ -382,7 +408,7 @@
      "callbackfn": "A function that accepts up to three arguments. The reduce method calls the callbackfn function one time for each element in the array.",
      "initialValue": "Initial value to start the accumulation. The first call to the callbackfn function provides this value as an argument instead of an array value."
     },
-    "jsDoc": "Calls the specified callback function for all the elements in an array. The return value of the callback function is the accumulated result, and is provided as an argument in the next call to the callback function.",
+    "jsDoc": "Call the specified callback function for all the elements in an array. The return value of the callback function is the accumulated result, and is provided as an argument in the next call to the callback function.",
     "_name": "reduce"
    },
    "pkg": null,
@@ -392,6 +418,20 @@
      "name": "callbackfn",
      "description": "A function that accepts up to three arguments. The reduce method calls the callbackfn function one time for each element in the array.",
      "type": "(previousValue: U, currentValue: T, currentIndex: number) => U",
+     "handlerParameters": [
+      {
+       "name": "previousValue",
+       "type": "U"
+      },
+      {
+       "name": "currentValue",
+       "type": "T"
+      },
+      {
+       "name": "currentIndex",
+       "type": "number"
+      }
+     ],
      "options": {},
      "isEnum": false
     },
@@ -417,7 +457,7 @@
     "shim": "Array_::removeElement",
     "weight": 48,
     "paramHelp": {},
-    "jsDoc": "Removes the first occurence of an object. Returns true if removed.",
+    "jsDoc": "Remove the first occurence of an object. Returns true if removed.",
     "_name": "removeElement"
    },
    "pkg": null,
@@ -442,15 +482,14 @@
     "paramDefl": {},
     "callingConvention": 0,
     "_source": null,
-    "help": "arrays/removeat",
+    "help": "arrays/remove-at",
     "shim": "Array_::removeAt",
     "weight": 49,
-    "advanced": true,
     "blockId": "array_removeat",
     "block": "%list| remove value at %index",
     "blockNamespace": "arrays",
     "paramHelp": {},
-    "jsDoc": "Removes the object at position index.",
+    "jsDoc": "Remove the element at a certain index.",
     "_name": "removeAt"
    },
    "pkg": null,
@@ -478,10 +517,9 @@
     },
     "callingConvention": 0,
     "_source": null,
-    "help": "arrays/insertat",
+    "help": "arrays/insert-at",
     "shim": "Array_::insertAt",
     "weight": 84,
-    "advanced": true,
     "blockId": "array_insertAt",
     "block": "%list| insert at %index| value %value",
     "blockNamespace": "arrays",
@@ -523,10 +561,9 @@
     "paramDefl": {},
     "callingConvention": 0,
     "_source": null,
-    "help": "arrays/indexof",
+    "help": "arrays/index-of",
     "shim": "Array_::indexOf",
     "weight": 50,
-    "advanced": true,
     "blockId": "array_indexof",
     "block": "%list| find index of %value",
     "blockNamespace": "arrays",
@@ -534,7 +571,7 @@
      "item": "The value to locate in the array.",
      "fromIndex": "The array index at which to begin the search. If fromIndex is omitted, the search starts at index 0."
     },
-    "jsDoc": "Returns the index of the first occurrence of a value in an array.",
+    "jsDoc": "Return the index of the first occurrence of a value in an array.",
     "_name": "indexOf"
    },
    "pkg": null,
@@ -574,7 +611,7 @@
     "paramHelp": {
      "index": "the zero-based position in the list of the item, eg: 0"
     },
-    "jsDoc": "Gets the value at a particular index",
+    "jsDoc": "Get the value at a particular index",
     "_name": "get"
    },
    "pkg": null,
@@ -611,7 +648,7 @@
      "index": "the zero-based position in the list to store the value, eg: 0",
      "the": "value to insert, eg: 0"
     },
-    "jsDoc": "Stores the value at a particular index",
+    "jsDoc": "Store a value at a particular index",
     "_name": "set"
    },
    "pkg": null,
@@ -705,7 +742,7 @@
     "paramHelp": {
      "index": "The zero-based index of the desired character."
     },
-    "jsDoc": "Returns the character at the specified index.",
+    "jsDoc": "Return the character at the specified index.",
     "_name": "charAt"
    },
    "pkg": null,
@@ -758,7 +795,7 @@
     "paramHelp": {
      "index": "The zero-based index of the desired character. If there is no character at the specified index, NaN is returned."
     },
-    "jsDoc": "Returns the Unicode value of the character at the specified location.",
+    "jsDoc": "Return the Unicode value of the character at the specified location.",
     "_name": "charCodeAt"
    },
    "pkg": null,
@@ -791,7 +828,7 @@
     "paramHelp": {
      "that": "String to compare to target string"
     },
-    "jsDoc": "Determines whether relative order of two strings (in ASCII encoding).",
+    "jsDoc": "See how the order of characters in two strings is different (in ASCII encoding).",
     "_name": "compare"
    },
    "pkg": null,
@@ -814,7 +851,7 @@
    "name": "substr",
    "attributes": {
     "paramDefl": {
-     "length": "1000000",
+     "length": "10",
      "start": "0"
     },
     "callingConvention": 0,
@@ -828,7 +865,7 @@
      "start": "first character index; can be negative from counting from the end, eg:0",
      "length": "number of characters to extract"
     },
-    "jsDoc": "Return substring of the current string.",
+    "jsDoc": "Return a substring of the current string.",
     "_name": "substr"
    },
    "pkg": null,
@@ -847,8 +884,8 @@
      "name": "length",
      "description": "number of characters to extract",
      "type": "number",
-     "initializer": "1000000",
-     "default": "1000000",
+     "initializer": "10",
+     "default": "10",
      "options": {},
      "isEnum": false
     }
@@ -882,7 +919,10 @@
    "namespace": "",
    "name": "parseInt",
    "attributes": {
-    "paramDefl": {},
+    "paramDefl": {
+     "text": "123",
+     "s": "123"
+    },
     "callingConvention": 0,
     "_source": null,
     "shim": "String_::toNumber",
@@ -891,7 +931,7 @@
     "block": "parse to integer %text",
     "blockNamespace": "text",
     "paramHelp": {
-     "s": "A string to convert into a number."
+     "s": "A string to convert into a number. eg: 123"
     },
     "jsDoc": "Convert a string to an integer.",
     "_name": "parseInt"
@@ -903,11 +943,13 @@
      "name": "text",
      "description": "",
      "type": "string",
+     "initializer": "123",
+     "default": "123",
      "options": {},
      "isEnum": false
     }
    ],
-   "snippet": "parseInt(\"\")",
+   "snippet": "parseInt(\"123\")",
    "qName": "parseInt"
   },
   "Object": {
@@ -1027,13 +1069,12 @@
     "paramDefl": {},
     "callingConvention": 0,
     "_source": null,
-    "help": "math/string-from-char-code",
+    "help": "math/from-char-code",
     "shim": "String_::fromCharCode",
-    "advanced": true,
+    "weight": 1,
     "blockNamespace": "Math",
     "blockId": "stringFromCharCode",
     "block": "text from char code %code",
-    "weight": 1,
     "paramHelp": {},
     "jsDoc": "Make a string from the given ASCII character code.",
     "_name": "fromCharCode"
@@ -1866,6 +1907,16 @@
      "name": "callbackfn",
      "description": "",
      "type": "(value1: T, value2: T) => number",
+     "handlerParameters": [
+      {
+       "name": "value1",
+       "type": "T"
+      },
+      {
+       "name": "value2",
+       "type": "T"
+      }
+     ],
      "options": {},
      "isEnum": false
     }
@@ -1899,6 +1950,16 @@
      "name": "callbackfn",
      "description": "",
      "type": "(value: T, index: number) => U",
+     "handlerParameters": [
+      {
+       "name": "value",
+       "type": "T"
+      },
+      {
+       "name": "index",
+       "type": "number"
+      }
+     ],
      "options": {},
      "isEnum": false
     }
@@ -1932,6 +1993,16 @@
      "name": "callbackfn",
      "description": "",
      "type": "(value: T, index: number) => boolean",
+     "handlerParameters": [
+      {
+       "name": "value",
+       "type": "T"
+      },
+      {
+       "name": "index",
+       "type": "number"
+      }
+     ],
      "options": {},
      "isEnum": false
     }
@@ -1965,6 +2036,20 @@
      "name": "callbackfn",
      "description": "",
      "type": "(previousValue: U, currentValue: T, currentIndex: number) => U",
+     "handlerParameters": [
+      {
+       "name": "previousValue",
+       "type": "U"
+      },
+      {
+       "name": "currentValue",
+       "type": "T"
+      },
+      {
+       "name": "currentIndex",
+       "type": "number"
+      }
+     ],
      "options": {},
      "isEnum": false
     },
@@ -3672,6 +3757,7 @@
      "name": "body",
      "description": "the code to repeat",
      "type": "() => void",
+     "handlerParameters": [],
      "options": {},
      "isEnum": false
     }
@@ -4633,6 +4719,7 @@
      "name": "handler",
      "description": "",
      "type": "() => void",
+     "handlerParameters": [],
      "options": {},
      "isEnum": false
     }
@@ -4690,6 +4777,7 @@
      "name": "handler",
      "description": "",
      "type": "() => void",
+     "handlerParameters": [],
      "options": {},
      "isEnum": false
     }
@@ -4756,6 +4844,7 @@
      "name": "handler",
      "description": "",
      "type": "() => void",
+     "handlerParameters": [],
      "options": {},
      "isEnum": false
     }
@@ -4822,6 +4911,7 @@
      "name": "handler",
      "description": "",
      "type": "() => void",
+     "handlerParameters": [],
      "options": {},
      "isEnum": false
     }
@@ -5230,6 +5320,7 @@
      "name": "handler",
      "description": "",
      "type": "() => void",
+     "handlerParameters": [],
      "options": {},
      "isEnum": false
     }

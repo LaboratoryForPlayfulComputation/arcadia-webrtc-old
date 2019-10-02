@@ -883,7 +883,10 @@ var pxsim;
             Marker.prototype.code = function () { return this.code_; };
             Marker.prototype.group = function () { return this.group_; };
             Marker.prototype.position = function () { return this.group_.position; };
-            Marker.prototype.worldPosition = function () { return this.group_.getWorldPosition(); };
+            Marker.prototype.worldPosition = function () {
+                var wpVector = new THREE.Vector3();
+                return this.group_.getWorldPosition(wpVector);
+            };
             Marker.prototype.prevPosition = function () { return this.prevPos_; };
             Marker.prototype.rotation = function () { return this.group_.quaternion; };
             Marker.prototype.prevRotation = function () { return this.prevRot_; };
@@ -1555,7 +1558,6 @@ var pxsim;
             if (!arToolkitContextSingleton && !arToolkitSourceSingleton) {
                 var arToolkitSource_1 = new THREEx.ArToolkitSource({
                     sourceType: 'webcam',
-                    sourceURL: null,
                     sourceWidth: 1200,
                     sourceHeight: 675,
                     displayWidth: 1200,
@@ -1573,10 +1575,10 @@ var pxsim;
                 window.addEventListener('resize', function () { return onResize(); });
                 function onResize() {
                     if (arToolkitSource_1) {
-                        arToolkitSource_1.onResize();
-                        arToolkitSource_1.copySizeTo(self_1.renderer.domElement);
+                        arToolkitSource_1.onResizeElement();
+                        arToolkitSource_1.copyElementSizeTo(self_1.renderer.domElement);
                         if (arToolkitContext_1 && (arToolkitContext_1.arController !== null))
-                            arToolkitSource_1.copySizeTo(arToolkitContext_1.arController.canvas);
+                            arToolkitSource_1.copyElementSizeTo(arToolkitContext_1.arController.canvas);
                     }
                 }
                 arToolkitContext_1.init(function onCompleted() {

@@ -25,4 +25,22 @@
       </block>
     </statement>
   </block>
+  <block type="ar_on_event" id="R1u6s9w5x|Rhc~c0+ejf" x="142" y="160">
+    <field name="event">MarkerEvent.Visible</field>
+    <value name="marker">
+      <shadow type="marker_block" id="!}b}C2?#%s-~Z_YYa-8~">
+        <field name="marker">MarkerCode.Marker2</field>
+      </shadow>
+    </value>
+    <statement name="HANDLER">
+      <block type="ar_set_brush_mode" id="dI6u|Ud}ZQV)~P8I:R2v">
+        <field name="val">Toggle.on</field>
+        <value name="marker">
+          <shadow type="marker_block" id="=h6ffqX~RnkDTxL|]dcD">
+            <field name="marker">MarkerCode.Marker2</field>
+          </shadow>
+        </value>
+      </block>
+    </statement>
+  </block>
 </xml>

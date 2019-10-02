@@ -2,7 +2,6 @@
 declare namespace THREEx {
 	 interface ArToolkitSourceOptions {
       sourceType : String;
-      sourceURL : String;
       sourceWidth: number;
       sourceHeight: number;
       displayWidth: number;
@@ -14,8 +13,10 @@ declare namespace THREEx {
         init(callback: () => void): void;
         domElement: HTMLElement;
         ready: Boolean;
-        onResize(): void;
-        copySizeTo(element: HTMLElement): void;
+        //onResize(): void;
+        onResizeElement(): void;
+        //copySizeTo(element: HTMLElement): void;
+        copyElementSizeTo(element: HTMLElement): void;
     }
     interface ArToolkitContextOptions {
 		cameraParametersUrl: String;

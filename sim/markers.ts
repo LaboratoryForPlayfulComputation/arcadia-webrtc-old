@@ -329,7 +329,10 @@ namespace pxsim.markers {
         code(){ return this.code_; }
         group(){ return this.group_; }
         position(){ return this.group_.position; }
-        worldPosition(){ return this.group_.getWorldPosition(); }
+        worldPosition(){ 
+            var wpVector = new THREE.Vector3();
+            return this.group_.getWorldPosition(wpVector);
+        }
         prevPosition(){ return this.prevPos_; }
         rotation(){ return this.group_.quaternion; }
         prevRotation(){ return this.prevRot_; }

@@ -10,21 +10,21 @@ namespace pxsim.messaging {
         script.src = "https://cdnjs.cloudflare.com/ajax/libs/peerjs/0.3.14/peer.js";
         document.head.appendChild(script);
 
-        function updateUserId(id : string){
+        function updateUserId(id : string) {
             let userId = parent.document.getElementById("userid");
             (userId as any).value = id.toString();
         }
 
-        function initDataConnectionCallbacks(conn: PeerJs.DataConnection){
+        function initDataConnectionCallbacks(conn: PeerJs.DataConnection) {
             connections[conn.peer] = conn;
-            conn.on('data', function(data: any){
+            conn.on('data', function(data: any) {
                 board().bus.queue(data["key"], 0x1);
             });
             conn.on('close', function() {connections[conn.peer] = undefined;});
             conn.on('error', function() {connections[conn.peer] = undefined;});  
         }
 
-        function initializePeer(){
+        function initializePeer() {
             /* Create instance of PeerJS */
             peer = new Peer({
                 host: 'liminal-jam.herokuapp.com',
@@ -35,10 +35,8 @@ namespace pxsim.messaging {
 
             /* Received user ID from server */
             if (peer) peer.on('open', function(id : string) { 
-                if (id)
-                    updateUserId(id); 
-                else if (peer.id)
-                    updateUserId(peer.id); 
+                if (id) updateUserId(id); 
+                else if (peer.id) updateUserId(peer.id); 
             });
             else initializePeer();
             if (peer) peer.on('close', function() { });
@@ -64,7 +62,7 @@ namespace pxsim.messaging {
         //% blockNamespace=messaging inBasicCategory=true
         //% weight=100
         export function send(key: string, value: number, id: string) { 
-            if (peer){
+            if (peer) {
                 let conn = connections[id];
                 if(!conn || !conn.open){
                     conn = peer.connect(id);

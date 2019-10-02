@@ -23,17 +23,42 @@ THREEx.ArSmoothedControls = function(object3d, parameters){
 	parameters = parameters || {}
 	this.parameters = {
 		// lerp coeficient for the position - between [0,1] - default to 1
-		lerpPosition: parameters.lerpPosition !== undefined ? parameters.lerpPosition : 0.7,
+		lerpPosition: 0.8,
 		// lerp coeficient for the quaternion - between [0,1] - default to 1
-		lerpQuaternion: parameters.lerpQuaternion !== undefined ? parameters.lerpQuaternion : 0.7,
+		lerpQuaternion: 0.2,
 		// lerp coeficient for the scale - between [0,1] - default to 1
-		lerpScale: parameters.lerpScale !== undefined ? parameters.lerpScale : 0.7,
+		lerpScale: 0.7,
 		// delay for lerp fixed steps - in seconds - default to 1/120
-		lerpStepDelay: parameters.fixStepDelay !== undefined ? parameters.fixStepDelay : 1/60,
+		lerpStepDelay: 1/60,
 		// minimum delay the sub-control must be visible before this controls become visible - default to 0 seconds
-		minVisibleDelay: parameters.minVisibleDelay !== undefined ? parameters.minVisibleDelay : 0.0,
+		minVisibleDelay: 0.0,
 		// minimum delay the sub-control must be unvisible before this controls become unvisible - default to 0 seconds
-		minUnvisibleDelay: parameters.minUnvisibleDelay !== undefined ? parameters.minUnvisibleDelay : 0.2,
+		minUnvisibleDelay: 0.2,
+	}
+	
+	//////////////////////////////////////////////////////////////////////////////
+	//		setParameters
+	//////////////////////////////////////////////////////////////////////////////
+	setParameters(parameters)
+	function setParameters(parameters){
+		if( parameters === undefined )	return
+		for( var key in parameters ){
+			var newValue = parameters[ key ]
+
+			if( newValue === undefined ){
+				console.warn( "THREEx.ArSmoothedControls: '" + key + "' parameter is undefined." )
+				continue
+			}
+
+			var currentValue = _this.parameters[ key ]
+
+			if( currentValue === undefined ){
+				console.warn( "THREEx.ArSmoothedControls: '" + key + "' is not a property of this material." )
+				continue
+			}
+
+			_this.parameters[ key ] = newValue
+		}
 	}
 }
 	
@@ -57,28 +82,24 @@ THREEx.ArSmoothedControls.prototype.update = function(targetObject3d){
 	if( targetObject3d.visible === false )	this._visibleStartedAt = null
 	if( targetObject3d.visible === true )	this._unvisibleStartedAt = null
 
+	if( targetObject3d.visible === true && this._visibleStartedAt === null )	this._visibleStartedAt = present
+	if( targetObject3d.visible === false && this._unvisibleStartedAt === null )	this._unvisibleStartedAt = present
+
 	if( wasVisible === false && targetObject3d.visible === true ){
-		if( this._visibleStartedAt === null )		this._visibleStartedAt = present
 		var visibleFor = present - this._visibleStartedAt
 		if( visibleFor >= this.parameters.minVisibleDelay ){
-			object3d.visible = true			
+			object3d.visible = true
+			snapDirectlyToTarget()
 		}
 		// console.log('visibleFor', visibleFor)
 	}
 
 	if( wasVisible === true && targetObject3d.visible === false ){
-		if( this._unvisibleStartedAt === null )	this._unvisibleStartedAt = present
 		var unvisibleFor = present - this._unvisibleStartedAt
 		if( unvisibleFor >= this.parameters.minUnvisibleDelay ){
 			object3d.visible = false			
 		}
-		// console.log('unvisibleFor', unvisibleFor)
 	}
-	
-	// disabled minVisibleDelay+minUnvisibleDelay
-	// if( true ){		
-	// 	object3d.visible = targetObject3d.visible
-	// }
 	
 	//////////////////////////////////////////////////////////////////////////////
 	//		apply lerp on positon/quaternion/scale
@@ -86,32 +107,23 @@ THREEx.ArSmoothedControls.prototype.update = function(targetObject3d){
 
 	// apply lerp steps - require fix time steps to behave the same no matter the fps
 	if( this._lastLerpStepAt === null ){
-		applyOneSlepStep()
+		applyOneSlerpStep()
 		this._lastLerpStepAt = present
 	}else{
 		var nStepsToDo = Math.floor( (present - this._lastLerpStepAt)/this.parameters.lerpStepDelay )
 		for(var i = 0; i < nStepsToDo; i++){
-			applyOneSlepStep()
+			applyOneSlerpStep()
 			this._lastLerpStepAt += this.parameters.lerpStepDelay
 		}
 	}
 
-	// update the matrix
-	this.object3d.updateMatrix()
-
-	function applyOneSlepStep(){
-		object3d.position.lerp(targetObject3d.position, parameters.lerpPosition)
-		object3d.quaternion.slerp(targetObject3d.quaternion, parameters.lerpQuaternion)
-		object3d.scale.lerp(targetObject3d.scale, parameters.lerpScale)
+	// disable the lerp by directly copying targetObject3d position/quaternion/scale
+	if( false ){		
+		snapDirectlyToTarget()
 	}
 
-	// disable the lerp by directly copying targetObject3d position/quaternion/scale
-	// if( false ){		
-	// 	this.object3d.position.copy( targetObject3d.position )
-	// 	this.object3d.quaternion.copy( targetObject3d.quaternion )
-	// 	this.object3d.scale.copy( targetObject3d.scale )
-	// 	this.object3d.updateMatrix()
-	// }
+	// update the matrix
+	this.object3d.updateMatrix()
 
 	//////////////////////////////////////////////////////////////////////////////
 	//		honor becameVisible/becameUnVisible event
@@ -123,5 +135,18 @@ THREEx.ArSmoothedControls.prototype.update = function(targetObject3d){
 	// honor becameUnVisible event
 	if( wasVisible === true && object3d.visible === false ){
 		this.dispatchEvent({ type: 'becameUnVisible' })
+	}
+	return
+
+	function snapDirectlyToTarget(){
+		object3d.position.copy( targetObject3d.position )
+		object3d.quaternion.copy( targetObject3d.quaternion )
+		object3d.scale.copy( targetObject3d.scale )
+	}	
+	
+	function applyOneSlerpStep(){
+		object3d.position.lerp(targetObject3d.position, parameters.lerpPosition)
+		object3d.quaternion.slerp(targetObject3d.quaternion, parameters.lerpQuaternion)
+		object3d.scale.lerp(targetObject3d.scale, parameters.lerpScale)
 	}
 }

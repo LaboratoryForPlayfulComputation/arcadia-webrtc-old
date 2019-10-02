@@ -17,7 +17,6 @@ namespace pxsim.threex {
         if (!arToolkitContextSingleton && !arToolkitSourceSingleton){
             let arToolkitSource = new THREEx.ArToolkitSource({
                 sourceType: 'webcam',
-                sourceURL: null,
                 sourceWidth: 1200,
                 sourceHeight: 675,
                 displayWidth: 1200,
@@ -36,10 +35,10 @@ namespace pxsim.threex {
             window.addEventListener('resize', () => onResize());           
             function onResize(){
                 if (arToolkitSource){
-                    arToolkitSource.onResize();
-                    arToolkitSource.copySizeTo(self.renderer.domElement);
+                    arToolkitSource.onResizeElement();
+                    arToolkitSource.copyElementSizeTo(self.renderer.domElement);
                     if (arToolkitContext && (arToolkitContext.arController !== null))
-                        arToolkitSource.copySizeTo(arToolkitContext.arController.canvas);
+                        arToolkitSource.copyElementSizeTo(arToolkitContext.arController.canvas);
                 }
             }
             arToolkitContext.init(function onCompleted(){
